@@ -11,9 +11,7 @@ func _ready():
 	if score > highscore:
 		global.highscore = score
 		highscore = score
-	
-	
-	
+	$Lose.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

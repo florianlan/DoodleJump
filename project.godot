@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="DoodleJump"
-run/main_scene="res://scenes/doodlejump.tscn"
+run/main_scene="res://scenes/score_scene.tscn"
 
 [autoload]
 

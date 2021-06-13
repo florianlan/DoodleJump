@@ -3,6 +3,7 @@ var camera
 
 # Declare member variables here. Examples:
 var platform_solid = preload('res://scenes/Platform Solid.tscn')
+var hole = preload("res://scenes/Hole.tscn")
 var maxY = -3000
 var y
 var screen_width
@@ -14,6 +15,7 @@ func _ready():
 	y = 0
 	screen_width = get_viewport_rect().size.x
 	create_platforms()
+
 		 
 
 
@@ -26,10 +28,19 @@ func _process(delta):
 	
 func create_platforms():
 	randomize()
+	var holes = y
 	while y > maxY:
 		var platform = platform_solid.instance()
 		platform.position = Vector2(rand_range(-screen_width/2 + 50, screen_width/2 - 50), y)
 		add_child(platform)
-
 		y -= rand_range(20,80)
+	
+	while holes > maxY:
+		holes -= rand_range(1000, 5000)
+		var newHole = hole.instance()
+		newHole.position = Vector2(rand_range(-screen_width/2 + 50, screen_width/2 - 50), holes)
+		add_child(newHole)
+	
+
+
 	

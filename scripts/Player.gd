@@ -25,10 +25,14 @@ func _process(delta):
 
 
 
-func _collision(body):
+func _on_Area2D_body_entered(body):
 	if body.is_in_group('platform') and linear_velocity.y == 0:
 		linear_velocity = Vector2(0, -500)
-	
+		$Jump.play()
+	elif body.is_in_group('hole'):
+		#$Lose.play()
+		get_tree().change_scene("res://scenes/score_scene.tscn")
+
 
 
 func out_of_screen():
@@ -37,5 +41,8 @@ func out_of_screen():
 	elif position.x < -screen_width:
 		position = Vector2(screen_width-20, position.y)
 	if position.y > camera.position.y+400:
+		#$Lose.play()
 		get_tree().change_scene("res://scenes/score_scene.tscn")
 	
+
+
