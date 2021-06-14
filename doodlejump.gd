@@ -16,7 +16,6 @@ func _ready():
 	screen_width = get_viewport_rect().size.x
 	create_platforms()
 
-		 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
